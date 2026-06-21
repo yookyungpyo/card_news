@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "brand": "www.wylieax.com",
+    "contact": "문의 : pyo0700@wylie.co.kr",
+    "topic": "AI 시대의 전문성",
+    "character": "../assets/poses/09.png"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "badge": "AI 에이전트 시대",
+      "title": "코딩 실력보다\n'도메인 지식'이다",
+      "subtitle": "전문성의 기준이 바뀐다",
+      "char": { "src": "../assets/poses/09.png", "pos": "br", "h": 600 }
+    },
+    {
+      "type": "content",
+      "index": "01",
+      "icon": "⚖️",
+      "heading": "인간 vs AI, 역할 분업",
+      "body": "인간은 기획(70%), AI는 실행(80%)을 맡습니다. 프롬프트 1회당 AI는 평균 10회 자율 행동을 수행해요.",
+      "char": { "src": "../assets/poses/10.png", "pos": "bl", "h": 340, "rot": -3 }
+    },
+    {
+      "type": "content",
+      "index": "02",
+      "icon": "⚡",
+      "heading": "도메인 전문가가 5배 효율적",
+      "body": "전문가는 프롬프트당 12회 행동·3,200단어를 뽑아냅니다. 초보자는 행동 2.4배, 결과물 5.3배 적었어요.",
+      "char": { "src": "../assets/poses/32.png", "pos": "br", "h": 320, "rot": 3 }
+    },
+    {
+      "type": "content",
+      "index": "03",
+      "icon": "📉",
+      "heading": "개발 경력의 격차는 5%p뿐",
+      "body": "성공률은 개발자 34% vs 비개발자 29%. 비기술 직군도 도메인 지식만 있으면 충분합니다.",
+      "char": { "src": "../assets/poses/42.png", "pos": "bl", "h": 320, "rot": -2 }
+    },
+    {
+      "type": "content",
+      "index": "04",
+      "icon": "🔄",
+      "heading": "단순 작업 ↓, 복합 가치 ↑",
+      "body": "단순 버그 수정 비중은 14%p 줄고, 운영·데이터 분석 같은 복합 업무의 경제적 가치는 27% 올랐습니다.",
+      "char": { "src": "../assets/poses/30.png", "pos": "br", "h": 320, "rot": 2 }
+    },
+    {
+      "type": "content",
+      "index": "05",
+      "icon": "🪜",
+      "heading": "초보→중급, 가장 큰 점프",
+      "body": "성공률이 초보 15%에서 중급 33%로 뜁니다. 최고 전문가와는 미미한 차이 — 기본 원리 파악이 핵심이에요.",
+      "char": { "src": "../assets/poses/08.png", "pos": "bl", "h": 340, "rot": -3 }
+    },
+    {
+      "type": "outro",
+      "title": "코딩 실력이 아니라\n'도메인 지식'이 답이다",
+      "cta": "내 분야 중급 지식부터 — 저장 & 공유 · www.wylieax.com",
+      "char": { "src": "../assets/poses/01.png", "pos": "br", "h": 500 }
+    }
+  ]
+}

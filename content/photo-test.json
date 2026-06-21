@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "brand": "www.wylieax.com",
+    "topic": "사진 삽입 테스트",
+    "contact": "문의 : pyo0700@wylie.co.kr"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "image": "../assets/test-photo.jpg",
+      "badge": "PHOTO COVER",
+      "title": "사진 위에\n제목이 얹힙니다",
+      "subtitle": "풀블리드 배경 + 가독성 스크림"
+    },
+    {
+      "type": "content",
+      "image": "../assets/test-photo.jpg",
+      "index": "01",
+      "heading": "상단 사진 밴드 레이아웃",
+      "body": "콘텐츠 슬라이드는 사진을 상단에 배치하고 아래에 텍스트를 둡니다. 사진과 글이 겹치지 않아 가독성이 좋습니다."
+    },
+    {
+      "type": "content",
+      "index": "02",
+      "heading": "사진 없는 슬라이드도 혼용",
+      "body": "한 세트 안에서 사진 있는 카드와 없는 카드를 자유롭게 섞을 수 있습니다."
+    },
+    {
+      "type": "outro",
+      "image": "../assets/test-photo.jpg",
+      "title": "마무리도 사진 위에",
+      "cta": "저장하고 공유 · www.wylieax.com"
+    }
+  ]
+}

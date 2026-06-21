@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; }
+  body {
+    font-family: var(--font, 'Malgun Gothic', 'Noto Sans KR', sans-serif);
+    -webkit-font-smoothing: antialiased;
+    background: #000;
+  }
+  #card {
+    position: relative;
+    width: var(--w, 1080px);
+    height: var(--h, 1350px);
+    overflow: hidden;
+    background:
+      radial-gradient(1200px 800px at 80% -10%, var(--bgAccent) 0%, transparent 55%),
+      var(--bg);
+    color: var(--text);
+  }
+  /* decorative accent — top-right corner bar */
+  #card::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 220px; height: 12px;
+    background: var(--primary);
+    z-index: 3;
+  }
+
+  /* full-bleed background photo + legibility scrim */
+  .bgimg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .scrim {
+    position: absolute; inset: 0;
+    z-index: 1;
+    background: linear-gradient(to top,
+      rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 42%, rgba(0,0,0,0.12) 100%);
+  }
+
+  /* content layer (always on top of any photo) */
+  .layer {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 96px 88px;
+  }
+
+  .badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--primary);
+    color: var(--badgeText);
+    font-weight: 800;
+    font-size: var(--fsBadge);
+    letter-spacing: 1px;
+    padding: 14px 28px;
+    border-radius: 999px;
+  }
+
+  .spacer { flex: 1; }
+
+  /* COVER */
+  .cover-title {
+    font-size: var(--fsCoverTitle);
+    font-weight: 900;
+    line-height: 1.12;
+    white-space: pre-line;
+    letter-spacing: -1px;
+  }
+  .cover-sub {
+    margin-top: 40px;
+    font-size: var(--fsCoverSub);
+    color: var(--textDim);
+    font-weight: 600;
+  }
+
+  /* CONTENT */
+  .index {
+    font-size: var(--fsIndex);
+    font-weight: 900;
+    line-height: 0.9;
+    color: var(--primary);
+    opacity: 0.22;
+    letter-spacing: -4px;
+  }
+  .heading {
+    margin-top: -40px;
+    font-size: var(--fsHeading);
+    font-weight: 900;
+    line-height: 1.18;
+    letter-spacing: -1px;
+  }
+  .heading::before {
+    content: "";
+    display: block;
+    width: 72px; height: 8px;
+    background: var(--primary);
+    border-radius: 4px;
+    margin-bottom: 32px;
+  }
+  .body {
+    margin-top: 36px;
+    font-size: var(--fsBody);
+    line-height: 1.6;
+    color: var(--textDim);
+    font-weight: 500;
+    max-width: 90%;
+  }
+
+  /* emoji icon chip (content slides) */
+  .icon-chip {
+    width: 128px; height: 128px;
+    border-radius: 30px;
+    background: rgba(127,127,127,0.14);
+    border: 2px solid var(--primary);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 72px; line-height: 1;
+    margin-bottom: 36px;
+  }
+  .has-icon .heading { margin-top: 0; }
+
+  /* character/mascot — sits BEHIND text (z-index 1) so titles/footer stay readable */
+  .character {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    filter: drop-shadow(0 18px 40px rgba(0,0,0,0.45));
+  }
+  /* keep title clear of a large character (cover/outro) */
+  .has-char .cover-title { max-width: 64%; font-size: calc(var(--fsCoverTitle) * 0.8); }
+  .has-char .outro-title { max-width: 82%; }
+  .has-char .cover-sub { max-width: 58%; }
+  /* keep body clear of a small corner character (content) */
+  .has-corner-char .body { max-width: 72%; }
+
+  /* top photo band for content slides with an image */
+  .photo-band {
+    width: calc(100% + 176px);
+    margin: -96px -88px 56px -88px;
+    height: 560px;
+    object-fit: cover;
+    display: block;
+  }
+  /* when a content slide has a top band, the big index would crowd it → shrink */
+  .has-band .index { font-size: calc(var(--fsIndex) * 0.5); margin-top: 4px; }
+  .has-band .heading { margin-top: -8px; }
+
+  /* OUTRO */
+  .outro-title {
+    font-size: calc(var(--fsCoverTitle) * 0.74);
+    font-weight: 900;
+    line-height: 1.24;
+    letter-spacing: -1px;
+  }
+  .outro-cta {
+    margin-top: 48px;
+    font-size: var(--fsCoverSub);
+    color: var(--primary);
+    font-weight: 800;
+  }
+
+  .footer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--fsFooter);
+    color: var(--textDim);
+    font-weight: 700;
+    margin-top: 24px;
+  }
+  /* readability scrim — keeps website/email legible even over a character */
+  .footer::before {
+    content: "";
+    position: absolute;
+    left: -88px; right: -88px; bottom: -96px; top: -34px;
+    background: linear-gradient(to top, var(--bg) 60%, transparent);
+    z-index: -1;
+  }
+  .footer .topic { color: var(--text); opacity: 0.7; }
+
+  /* page indicator (content slides) */
+  .pager {
+    position: absolute;
+    top: 92px; right: 88px;
+    z-index: 3;
+    font-size: var(--fsFooter);
+    font-weight: 800;
+    color: var(--textDim);
+    letter-spacing: 1px;
+  }
+  .pager b { color: var(--primary); }
+
+  /* swipe hint (cover) */
+  .swipe {
+    margin-top: 28px;
+    font-size: var(--fsFooter);
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: 1px;
+  }
+
+  /* text legibility overrides when sitting on a full-bleed photo */
+  .layer.on-photo { color: #fff; }
+  .layer.on-photo .cover-sub { color: rgba(255,255,255,0.9); }
+  .layer.on-photo .footer { color: rgba(255,255,255,0.85); }
+  .layer.on-photo .footer .topic { color: #fff; opacity: 0.9; }
+  .layer.on-photo .swipe { color: #fff; }
+</style>
+</head>
+<body>
+  <div id="card"></div>
+<script>
+  function esc(s){ return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function escAttr(s){ return esc(s).replace(/"/g,"&quot;"); }
+
+  function applyTheme(theme){
+    const r = document.documentElement.style;
+    r.setProperty('--font', theme.fontFamily);
+    r.setProperty('--w', theme.width + 'px');
+    r.setProperty('--h', theme.height + 'px');
+    const c = theme.colors, f = theme.fontSizes;
+    r.setProperty('--bg', c.bg);
+    r.setProperty('--bgAccent', c.bgAccent);
+    r.setProperty('--primary', c.primary);
+    r.setProperty('--text', c.text);
+    r.setProperty('--textDim', c.textDim);
+    r.setProperty('--badgeText', c.badgeText);
+    r.setProperty('--fsBadge', f.badge + 'px');
+    r.setProperty('--fsCoverTitle', f.coverTitle + 'px');
+    r.setProperty('--fsCoverSub', f.coverSubtitle + 'px');
+    r.setProperty('--fsIndex', f.index + 'px');
+    r.setProperty('--fsHeading', f.heading + 'px');
+    r.setProperty('--fsBody', f.body + 'px');
+    r.setProperty('--fsFooter', f.footer + 'px');
+  }
+
+  function footerHTML(meta){
+    // 푸터 우측: 연락처(meta.contact)가 있으면 그것을, 없으면 주제(meta.topic)를 표시
+    var right = meta.contact ? meta.contact : meta.topic;
+    return '<div class="footer"><span class="brand">' + esc(meta.brand) +
+           '</span><span class="topic">' + esc(right) + '</span></div>';
+  }
+
+  // full-bleed = cover with image, or any slide marked fullBleed
+  function isFullBleed(slide){
+    return !!slide.image && (slide.type === 'cover' || slide.type === 'outro' || slide.fullBleed);
+  }
+
+  function innerForSlide(slide, meta){
+    if (slide.type === 'cover'){
+      return '<span class="badge">' + esc(slide.badge) + '</span>' +
+             '<div class="spacer"></div>' +
+             '<div class="cover-title">' + esc(slide.title) + '</div>' +
+             '<div class="cover-sub">' + esc(slide.subtitle) + '</div>' +
+             '<div class="swipe">밀어서 보기 →</div>' +
+             '<div class="spacer"></div>' +
+             footerHTML(meta);
+    }
+    if (slide.type === 'outro'){
+      return '<span class="badge">' + esc(meta.topic) + '</span>' +
+             '<div class="spacer"></div>' +
+             '<div class="outro-title">' + esc(slide.title) + '</div>' +
+             '<div class="outro-cta">' + esc(slide.cta) + '</div>' +
+             '<div class="spacer"></div>' +
+             footerHTML(meta);
+    }
+    // content — optional top photo band (only when not full-bleed)
+    var band = (slide.image && !slide.fullBleed)
+      ? '<img class="photo-band" src="' + escAttr(slide.image) + '">' : '';
+    // optional emoji icon chip replaces the big faint index
+    var top = slide.icon
+      ? '<div class="icon-chip">' + esc(slide.icon) + '</div>'
+      : '<div class="index">' + esc(slide.index) + '</div>';
+    return band + top +
+           '<div class="heading">' + esc(slide.heading) + '</div>' +
+           '<div class="body">' + esc(slide.body) + '</div>' +
+           '<div class="spacer"></div>' +
+           footerHTML(meta);
+  }
+
+  // nav = { pos, total } — 1-based position within the deck.
+  window.renderSlide = function(slide, meta, theme, nav){
+    applyTheme(theme);
+    var card = document.getElementById('card');
+    var full = isFullBleed(slide);
+    var hasBand = !!(slide.image && slide.type === 'content' && !slide.fullBleed);
+
+    // character/mascot — meta.character is the resolved URL.
+    // per-slide placement via slide.char = { show, pos:'bl'|'br', h, bottom, x, flip, rot }.
+    var ch = slide.char || null;
+    // per-slide pose image (ch.src) overrides the deck-wide meta.character
+    var charUrl = (ch && ch.src) ? ch.src : meta.character;
+    var showChar = !!charUrl && (ch ? ch.show !== false
+                                    : (slide.type === 'cover' || slide.type === 'outro'));
+    var isBig = slide.type === 'cover' || slide.type === 'outro';
+    var bigChar = showChar && isBig;            // large character that shares the headline
+    var cornerChar = showChar && !isBig;        // small corner mascot on content
+    var hasIcon = !!slide.icon && slide.type === 'content';
+
+    var html = '';
+    if (full) {
+      html += '<img class="bgimg" src="' + escAttr(slide.image) + '"><div class="scrim"></div>';
+    }
+    html += '<div class="layer' + (full ? ' on-photo' : '') + (hasBand ? ' has-band' : '') +
+            (hasIcon ? ' has-icon' : '') + (bigChar ? ' has-char' : '') +
+            (cornerChar ? ' has-corner-char' : '') + '">' +
+            innerForSlide(slide, meta) + '</div>';
+    if (showChar) {
+      var pos = (ch && ch.pos) || 'br';
+      var h = (ch && ch.h) || (slide.type === 'outro' ? 470 : 620);
+      var bottom = (ch && ch.bottom != null) ? ch.bottom : (isBig ? 96 : 150);
+      var x = (ch && ch.x != null) ? ch.x : 40;
+      var side = pos === 'bl' ? ('left:' + x + 'px;right:auto;') : ('right:' + x + 'px;left:auto;');
+      var flip = !!(ch && ch.flip);
+      var rot = (ch && ch.rot) || 0;
+      var tr = (flip || rot) ? ('transform:' + (flip ? 'scaleX(-1) ' : '') +
+               (rot ? ('rotate(' + rot + 'deg)') : '') + ';') : '';
+      html += '<img class="character" style="height:' + h + 'px;bottom:' + bottom + 'px;' +
+              side + tr + '" src="' + escAttr(charUrl) + '">';
+    }
+    card.innerHTML = html;
+
+    if (slide.type === 'content' && nav) {
+      var p = document.createElement('div');
+      p.className = 'pager';
+      p.innerHTML = '<b>' + esc(nav.pos) + '</b> / ' + esc(nav.total);
+      card.appendChild(p);
+    }
+    return document.fonts ? document.fonts.ready : Promise.resolve();
+  };
+</script>
+</body>
+</html>

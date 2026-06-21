@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# generated card renders — regenerate via render.mjs.
+# keep the showcase deck so the repo shows results.
+output/*
+!output/ai-domain-expertise/
+
+# pose-extraction intermediates
+assets/poses/raw/
+assets/poses/_candidates.png
+
+# local Claude Code settings
+.claude/
+
+# os / editor
+*.log
+.DS_Store
+Thumbs.db

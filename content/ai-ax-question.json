@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "brand": "www.wylieax.com",
+    "contact": "문의 : pyo0700@wylie.co.kr",
+    "topic": "AI·AX, 결국 방향은 셋",
+    "character": "../assets/my.png"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "badge": "AI 버즈워드 정리",
+      "title": "이름은 많지만\n질문은 하나입니다",
+      "subtitle": "결국 가장 중요한 질문은?"
+    },
+    {
+      "type": "content",
+      "index": "01",
+      "icon": "🏷️",
+      "heading": "도구 이름은 매주 늘어난다",
+      "body": "생성형 AI, AI Agent, Copilot, RAG, 자동화, 사내 챗봇… 외울수록 더 헷갈립니다. 이건 전부 '수단'의 이름일 뿐이에요."
+    },
+    {
+      "type": "content",
+      "index": "02",
+      "icon": "❓",
+      "heading": "진짜 질문은 단 하나",
+      "body": "'무슨 도구를 쓸까'가 아니라 '우리 일이 어떻게 바뀌는가'입니다. 도구보다 일의 변화가 먼저예요."
+    },
+    {
+      "type": "content",
+      "index": "03",
+      "icon": "💪",
+      "heading": "방향 ① 증강 (Augmentation)",
+      "body": "사람을 대체하는 게 아니라 더 잘하게 만듭니다. 초안·분석·검색을 AI가 거들어 판단의 질을 높여요."
+    },
+    {
+      "type": "content",
+      "index": "04",
+      "icon": "⚙️",
+      "heading": "방향 ② 자동화 (Automation)",
+      "body": "매번 반복하는 일은 기계에 넘깁니다. 보고서 양식, 데이터 정리, 단순 응답처럼 손 가는 일부터요."
+    },
+    {
+      "type": "content",
+      "index": "05",
+      "icon": "🧩",
+      "heading": "방향 ③ 조직화 (Organization)",
+      "body": "흩어진 지식과 프로세스를 한데 묶습니다. 사내 문서·노하우가 검색되고 흐르면 팀 전체가 빨라져요."
+    },
+    {
+      "type": "content",
+      "index": "06",
+      "icon": "🚀",
+      "heading": "그래서, 어디서 시작하나",
+      "body": "도구 고르기 말고 '바뀔 내 업무 1개'부터. 그게 증강·자동화·조직화 중 무엇에 닿는지 보면 길이 보입니다."
+    },
+    {
+      "type": "outro",
+      "title": "도구 이름 말고\n증강·자동화·조직화로",
+      "cta": "저장하고 공유 · www.wylieax.com"
+    }
+  ]
+}

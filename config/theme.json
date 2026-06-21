@@ -1,0 +1,26 @@
+{
+  "name": "midnight-mint",
+  "width": 1080,
+  "height": 1350,
+  "scale": 2,
+  "fontFamily": "'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif",
+  "colors": {
+    "bg": "#0e1b2c",
+    "bgAccent": "#13263d",
+    "primary": "#3ddc97",
+    "primarySoft": "#2bb37c",
+    "text": "#ffffff",
+    "textDim": "#9fb3c8",
+    "line": "#23394f",
+    "badgeText": "#0e1b2c"
+  },
+  "fontSizes": {
+    "badge": 30,
+    "coverTitle": 96,
+    "coverSubtitle": 40,
+    "index": 220,
+    "heading": 64,
+    "body": 42,
+    "footer": 30
+  }
+}

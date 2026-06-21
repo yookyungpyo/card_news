@@ -1,0 +1,14 @@
+{
+  "name": "card-news",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "인스타그램 카드뉴스 제작 하네스 — HTML/CSS 템플릿 -> Playwright PNG 렌더",
+  "scripts": {
+    "render": "node scripts/render.mjs",
+    "render:sample": "node scripts/render.mjs content/sample.json"
+  },
+  "dependencies": {
+    "playwright": "^1.61.0"
+  }
+}

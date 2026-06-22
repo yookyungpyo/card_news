@@ -11,7 +11,11 @@
       "badge": "AX 현실 점검",
       "title": "AI가 일을 줄여준다는\n착각!",
       "subtitle": "여러분의 AI는 안녕하신가요?",
-      "char": { "src": "../assets/poses/35.png", "pos": "br", "h": 600 }
+      "char": {
+        "src": "../assets/poses/35.png",
+        "pos": "br",
+        "h": 460
+      }
     },
     {
       "type": "content",
@@ -19,7 +23,12 @@
       "icon": "😮‍💨",
       "heading": "AI 쓸수록 일이 더 많아졌죠?",
       "body": "분명 편해진다고 했는데, 결과물 고치고 다시 시키느라 더 바빠집니다. 시간 아끼려다 검수에 시간을 다 쓰는 역설이에요.",
-      "char": { "src": "../assets/poses/24.png", "pos": "br", "h": 330, "rot": 3 }
+      "char": {
+        "src": "../assets/poses/24.png",
+        "pos": "br",
+        "h": 250,
+        "rot": 3
+      }
     },
     {
       "type": "content",
@@ -27,7 +36,13 @@
       "icon": "🤔",
       "heading": "왜 그럴까요?",
       "body": "AI가 부족해서가 아닙니다. 우리가 던진 질문이 모호했기 때문이에요. 두루뭉술한 한 줄에는 두루뭉술한 답이 돌아옵니다.",
-      "char": { "src": "../assets/poses/32.png", "pos": "bl", "h": 320, "flip": true, "rot": -3 }
+      "char": {
+        "src": "../assets/poses/32.png",
+        "pos": "bl",
+        "h": 250,
+        "flip": true,
+        "rot": -3
+      }
     },
     {
       "type": "content",
@@ -35,7 +50,12 @@
       "icon": "🤖",
       "heading": "쓸수록 AI가 바보 같다?",
       "body": "맥락도, 자료도, 기준도 안 줬는데 똑똑한 답을 기대했던 거죠. AI는 준 만큼만 일합니다 — 입력이 빈약하면 출력도 빈약해요.",
-      "char": { "src": "../assets/poses/26.png", "pos": "br", "h": 330, "rot": 2 }
+      "char": {
+        "src": "../assets/poses/26.png",
+        "pos": "br",
+        "h": 250,
+        "rot": 2
+      }
     },
     {
       "type": "content",
@@ -43,7 +63,12 @@
       "icon": "🧗",
       "heading": "그래서 AX가 어렵습니다",
       "body": "도구를 도입한다고 일이 저절로 바뀌지 않아요. '무엇을, 어떻게 줄지' 정리되지 않으면 AI는 잘해야 평범한 비서에 머뭅니다.",
-      "char": { "src": "../assets/poses/30.png", "pos": "bl", "h": 330, "rot": -2 }
+      "char": {
+        "src": "../assets/poses/30.png",
+        "pos": "bl",
+        "h": 250,
+        "rot": -2
+      }
     },
     {
       "type": "content",
@@ -51,13 +76,22 @@
       "icon": "🔑",
       "heading": "AI를 정말 잘 쓰고 싶다면",
       "body": "프롬프트 기술보다 '재료'가 먼저입니다. 목표·맥락·예시·기준, 좋은 입력을 갖추면 AI는 비로소 제 실력을 냅니다.",
-      "char": { "src": "../assets/poses/36.png", "pos": "br", "h": 340, "rot": 2 }
+      "char": {
+        "src": "../assets/poses/36.png",
+        "pos": "br",
+        "h": 250,
+        "rot": 2
+      }
     },
     {
       "type": "outro",
       "title": "Gold in,\nGold out 하세요",
       "cta": "좋은 입력이 좋은 결과를 만듭니다 · 저장 & 공유 www.wylieax.com",
-      "char": { "src": "../assets/poses/08.png", "pos": "br", "h": 500 }
+      "char": {
+        "src": "../assets/poses/08.png",
+        "pos": "br",
+        "h": 370
+      }
     }
   ]
 }

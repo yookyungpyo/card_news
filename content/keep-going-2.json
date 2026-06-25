@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "brand": "www.wylieax.com",
+    "contact": "문의 : pyo0700@wylie.co.kr",
+    "topic": "지속적으로 하자",
+    "character": "../assets/poses/01.png"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "badge": "오늘부터 지속",
+      "title": "지속적으로\n하자!",
+      "subtitle": "재능보다 꾸준함이 이긴다",
+      "char": { "src": "../assets/poses/01.png", "pos": "br", "h": 460 }
+    },
+    {
+      "type": "content",
+      "index": "01",
+      "icon": "🏃",
+      "heading": "일단 부딪히고 해본다",
+      "body": "생각이 길어지면 못 해요.\n일단 해보는 겁니다.\n안 되면 말고!",
+      "char": { "src": "../assets/poses/35.png", "pos": "br", "h": 250, "rot": 3 }
+    },
+    {
+      "type": "content",
+      "index": "02",
+      "icon": "🙅",
+      "heading": "못한다는 사람은 멀리",
+      "body": "'넌 안 돼'라는 사람,\n바꾸려고 에너지 쏟지 마세요.\n그 시간에 그냥 내가 하면 됩니다.",
+      "char": { "src": "../assets/poses/32.png", "pos": "bl", "h": 250, "flip": true, "rot": -3 }
+    },
+    {
+      "type": "content",
+      "index": "03",
+      "icon": "❤️",
+      "heading": "좋아한다면 꾸준히 한다",
+      "body": "안 되더라도 내가 좋아한다면\n계속하면 됩니다.\n지속하는 한 실패는 없어요.\n그냥 '하고 있는 과정'이니까.",
+      "char": { "src": "../assets/poses/33.png", "pos": "br", "h": 250, "rot": 2 }
+    },
+    {
+      "type": "content",
+      "index": "04",
+      "icon": "🔥",
+      "heading": "쪽팔려도 계속하자",
+      "body": "모르는 건 하나도 안 부끄러워요.\n정말 쪽팔린 건\n'안 하는 것'이니까요.",
+      "char": { "src": "../assets/poses/08.png", "pos": "bl", "h": 250, "rot": -2 }
+    },
+    {
+      "type": "content",
+      "index": "05",
+      "icon": "🧩",
+      "heading": "타인의 스킬을 따라하자",
+      "body": "잘하는 사람을 따라 하다 보면\n어느새 '내 것'이 생깁니다.\n배움은 모방에서 시작돼요.",
+      "char": { "src": "../assets/poses/30.png", "pos": "br", "h": 250, "rot": 2 }
+    },
+    {
+      "type": "outro",
+      "title": "성장이란,\n과거의 나와\n이별하는 것",
+      "cta": "이별을 두려워하지 마 — 오늘도 계속!",
+      "char": { "src": "../assets/poses/26.png", "pos": "br", "h": 370 }
+    }
+  ]
+}

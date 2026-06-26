@@ -10,8 +10,9 @@ output/*
 assets/poses/raw/
 assets/poses/_candidates.png
 
-# local Claude Code settings
-.claude/
+# local Claude Code settings (but keep shared skills in the repo)
+.claude/*
+!.claude/skills/
 
 # os / editor
 *.log

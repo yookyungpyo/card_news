@@ -1,0 +1,26 @@
+{
+  "name": "cream-teal",
+  "width": 1080,
+  "height": 1350,
+  "scale": 2,
+  "fontFamily": "'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif",
+  "colors": {
+    "bg": "#fbf7f2",
+    "bgAccent": "#f3e7dd",
+    "primary": "#0e9f8e",
+    "primarySoft": "#0b8275",
+    "text": "#1c1a19",
+    "textDim": "#6b6460",
+    "line": "#e6ddd4",
+    "badgeText": "#ffffff"
+  },
+  "fontSizes": {
+    "badge": 30,
+    "coverTitle": 96,
+    "coverSubtitle": 40,
+    "index": 220,
+    "heading": 64,
+    "body": 42,
+    "footer": 30
+  }
+}

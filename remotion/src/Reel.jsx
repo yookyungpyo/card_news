@@ -93,7 +93,7 @@ const Scene = ({ slide, idx }) => {
             <div style={{ opacity: fadeIn(8), transform: `translateY(${rise(8)}px)` }}>
               <RichLines text={slide.heading} style={{ fontSize: 80, fontWeight: 900, lineHeight: 1.18, letterSpacing: -1 }} />
             </div>
-            <div style={{ marginTop: 40, opacity: fadeIn(16) }}>
+            <div style={{ marginTop: 40, maxWidth: 640, opacity: fadeIn(16) }}>
               <RichLines text={slide.body} style={{ fontSize: 47, lineHeight: 1.55, color: theme.textDim, fontWeight: 500 }} />
             </div>
           </>
@@ -115,10 +115,10 @@ const Scene = ({ slide, idx }) => {
       <Img
         src={staticFile('poses/' + slide.pose)}
         style={{
-          position: 'absolute', bottom: 190,
-          height: slide.type === 'cover' ? 400 : slide.type === 'outro' ? 360 : 290,
-          [slide.pos === 'bl' ? 'left' : 'right']: 64,
-          transform: `${slide.flip ? 'scaleX(-1) ' : ''}scale(${charSpring}) translateY(${interpolate(charSpring, [0, 1], [40, 0])}px)`,
+          // always bottom-RIGHT so it never sits over the left-aligned copy
+          position: 'absolute', bottom: 180, right: 56,
+          height: slide.type === 'cover' ? 400 : slide.type === 'outro' ? 360 : 270,
+          transform: `scale(${charSpring}) translateY(${interpolate(charSpring, [0, 1], [40, 0])}px)`,
           transformOrigin: 'bottom center',
           filter: 'drop-shadow(0 14px 32px rgba(0,0,0,0.24))',
         }}

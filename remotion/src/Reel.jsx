@@ -111,15 +111,16 @@ const Scene = ({ slide, idx }) => {
         )}
       </div>
 
-      {/* character */}
+      {/* character — kept modest in size so the ~100px pose art stays crisp */}
       <Img
         src={staticFile('poses/' + slide.pose)}
         style={{
-          position: 'absolute', bottom: 210, height: 600,
-          [slide.pos === 'bl' ? 'left' : 'right']: 60,
+          position: 'absolute', bottom: 190,
+          height: slide.type === 'cover' ? 400 : slide.type === 'outro' ? 360 : 290,
+          [slide.pos === 'bl' ? 'left' : 'right']: 64,
           transform: `${slide.flip ? 'scaleX(-1) ' : ''}scale(${charSpring}) translateY(${interpolate(charSpring, [0, 1], [40, 0])}px)`,
           transformOrigin: 'bottom center',
-          filter: 'drop-shadow(0 18px 40px rgba(0,0,0,0.28))',
+          filter: 'drop-shadow(0 14px 32px rgba(0,0,0,0.24))',
         }}
       />
 

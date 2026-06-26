@@ -49,6 +49,9 @@ const Scene = ({ slide, idx }) => {
   // handwriting "pen draw" for *…* emphasis — starts after the title lands
   const emReveal = interpolate(frame, [20, 44], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   const charSpring = spring({ frame: frame - 6, fps, config: { damping: 16, mass: 0.7 } });
+  // gentle idle motion after the character settles (bob + slight tilt)
+  const bobY = Math.sin(frame / 13) * 10 * charSpring;
+  const tilt = Math.sin(frame / 19) * 1.2 * charSpring;
 
   const isContent = slide.type === 'content';
   const badge = slide.badge || (slide.type === 'outro' ? meta.topic : null);
@@ -132,7 +135,7 @@ const Scene = ({ slide, idx }) => {
           position: 'absolute', bottom: 180,
           [slide.pos === 'bl' ? 'left' : 'right']: 56,
           height: slide.type === 'cover' ? 400 : slide.type === 'outro' ? 360 : 270,
-          transform: `${slide.flip ? 'scaleX(-1) ' : ''}scale(${charSpring}) translateY(${interpolate(charSpring, [0, 1], [40, 0])}px)`,
+          transform: `${slide.flip ? 'scaleX(-1) ' : ''}scale(${charSpring}) translateY(${interpolate(charSpring, [0, 1], [40, 0]) + bobY}px) rotate(${tilt}deg)`,
           transformOrigin: 'bottom center',
           filter: 'drop-shadow(0 14px 32px rgba(0,0,0,0.24))',
         }}

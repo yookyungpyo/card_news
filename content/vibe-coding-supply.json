@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "brand": "www.wylieax.com",
+    "contact": "문의 : pyo0700@wylie.co.kr",
+    "topic": "수요 없는 공급의 시대",
+    "character": "../assets/poses/01.png"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "badge": "AI 코딩 시대의 역설",
+      "title": "누구나 만드는 시대,\n왜 *아무도 안 쓸까?*",
+      "subtitle": "바이브코딩이 만든 '수요 없는 공급'",
+      "char": { "src": "../assets/poses/01.png", "pos": "br", "h": 460 }
+    },
+    {
+      "type": "content",
+      "index": "01",
+      "icon": "🛠️",
+      "heading": "만들기는 공짜가 됐다",
+      "body": "AI에게 시키면 하루 만에 앱이 나와요.\n코딩을 몰라도, 자본이 없어도 OK.\n이제 만드는 일은 장벽이 아닙니다.",
+      "char": { "src": "../assets/poses/24.png", "pos": "br", "h": 250, "rot": 3 }
+    },
+    {
+      "type": "content",
+      "index": "02",
+      "icon": "🦗",
+      "heading": "그런데 아무도 안 쓴다",
+      "body": "쏟아지는 건 공급뿐,\n쓰는 사람이 없습니다.\n병목은 '만들기'가 아니라\n'수요'였어요.",
+      "char": { "src": "../assets/poses/32.png", "pos": "bl", "h": 250, "flip": true, "rot": -3 }
+    },
+    {
+      "type": "content",
+      "index": "03",
+      "icon": "🔄",
+      "heading": "순서가 거꾸로다",
+      "body": "만들고 나서 살 사람을 찾으면\n이미 늦습니다.\n코드 한 줄 전에 '문제'와 '고객'부터.\n만들기 전에 먼저 파세요.",
+      "char": { "src": "../assets/poses/26.png", "pos": "br", "h": 250, "rot": 2 }
+    },
+    {
+      "type": "outro",
+      "title": "코드보다\n*수요*가 먼저다",
+      "cta": "만들 수 있다고, 팔리는 건 아니다.",
+      "char": { "src": "../assets/poses/35.png", "pos": "br", "h": 370 }
+    }
+  ]
+}

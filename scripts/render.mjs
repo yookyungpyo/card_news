@@ -53,7 +53,11 @@ async function main() {
   const templateUrl = pathToFileURL(path.resolve(root, 'templates', 'card.html')).href;
   const scale = theme.scale || 2;
 
-  const browser = await chromium.launch();
+  // Allow pointing at a pre-installed Chromium (e.g. when the Playwright CDN is
+  // unreachable). Falls back to Playwright's bundled browser when unset.
+  const browser = await chromium.launch(
+    process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}
+  );
   const page = await browser.newPage({
     viewport: { width: theme.width, height: theme.height },
     deviceScaleFactor: scale,

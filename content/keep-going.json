@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "brand": "www.wylieax.com",
+    "contact": "문의 : pyo0700@wylie.co.kr",
+    "topic": "지속하게 잘하는 사람",
+    "character": "../assets/poses/01.png"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "badge": "꾸준함의 힘",
+      "title": "지속하게\n잘하는 사람",
+      "subtitle": "지속함은 재능을 이기고,\n습관은 결과를 만든다",
+      "char": { "src": "../assets/poses/01.png", "pos": "br", "h": 460 }
+    },
+    {
+      "type": "content",
+      "index": "01",
+      "icon": "🏃",
+      "heading": "일단 부딪히고 해본다",
+      "body": "생각만으로는\n아무것도 바뀌지 않아요.\n행동이 모든 것을 열어줍니다.",
+      "char": { "src": "../assets/poses/26.png", "pos": "br", "h": 250, "rot": 3 }
+    },
+    {
+      "type": "content",
+      "index": "02",
+      "icon": "😎",
+      "heading": "못한다는 소리도 즐긴다",
+      "body": "'그건 못해' '재능 없어'\n흔들리지 않고 오히려 즐겨요.\n비난은 나를 단단하게 만드는\n연료니까요.",
+      "char": { "src": "../assets/poses/08.png", "pos": "bl", "h": 250, "flip": true, "rot": -2 }
+    },
+    {
+      "type": "content",
+      "index": "03",
+      "icon": "💯",
+      "heading": "안 돼도 백 번은 해본다",
+      "body": "실패는 결과가 아니라\n과정입니다.\n포기하지 않은 횟수가\n결국 실력으로 남아요.",
+      "char": { "src": "../assets/poses/24.png", "pos": "br", "h": 250, "rot": 2 }
+    },
+    {
+      "type": "content",
+      "index": "04",
+      "icon": "🔥",
+      "heading": "쪽팔려도 계속한다",
+      "body": "창피함은 잠시의 감정일 뿐.\n성공을 향해\n멈추지 않고 계속합니다.",
+      "char": { "src": "../assets/poses/32.png", "pos": "bl", "h": 250, "rot": -3 }
+    },
+    {
+      "type": "content",
+      "index": "05",
+      "icon": "🧩",
+      "heading": "타인의 스킬을 내 방식으로",
+      "body": "A·B·C의 기술을 배우되\n그대로 복사하지 않아요.\n나에게 맞게 재해석해\n나만의 무기로 만듭니다.",
+      "char": { "src": "../assets/poses/30.png", "pos": "br", "h": 250, "rot": 2 }
+    },
+    {
+      "type": "content",
+      "index": "06",
+      "icon": "📄",
+      "heading": "백지에서 다시 배운다",
+      "body": "자존심을 내려놓고\n처음으로 돌아가는 용기.\n성장은 과거의 나와\n결별하는 과정입니다.",
+      "char": { "src": "../assets/poses/36.png", "pos": "bl", "h": 250, "rot": -2 }
+    },
+    {
+      "type": "outro",
+      "title": "오늘도,\n지속하게 해보자!",
+      "cta": "결국, 해내는 사람은 그렇게 행동한다.",
+      "char": { "src": "../assets/poses/35.png", "pos": "br", "h": 370 }
+    }
+  ]
+}

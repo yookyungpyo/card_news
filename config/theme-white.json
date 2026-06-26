@@ -1,0 +1,26 @@
+{
+  "name": "clean-white-mint",
+  "width": 1080,
+  "height": 1350,
+  "scale": 2,
+  "fontFamily": "'Pretendard', 'Malgun Gothic', 'Noto Sans KR', sans-serif",
+  "colors": {
+    "bg": "#ffffff",
+    "bgAccent": "#e8f8f0",
+    "primary": "#10b981",
+    "primarySoft": "#0e9f6e",
+    "text": "#0f1c17",
+    "textDim": "#5b6b66",
+    "line": "#e6ebe9",
+    "badgeText": "#ffffff"
+  },
+  "fontSizes": {
+    "badge": 30,
+    "coverTitle": 96,
+    "coverSubtitle": 40,
+    "index": 220,
+    "heading": 64,
+    "body": 42,
+    "footer": 30
+  }
+}

@@ -13,11 +13,21 @@ export const TRANSITION_FRAMES = 18; // ~0.6s cross-fade
 const FONT = "'Pretendard', sans-serif";
 const PAD = 96;
 
-// inline *…* emphasis -> handwriting span
-const renderInline = (line) =>
+// inline *…* emphasis -> handwriting span.
+// emReveal (0..1) wipes the emphasis left→right so it "writes itself" on.
+const renderInline = (line, emReveal = 1) =>
   line.split(/(\*[^*]+\*)/g).filter(Boolean).map((p, i) =>
     p.startsWith('*') && p.endsWith('*') ? (
-      <span key={i} style={{ fontFamily: "'HandKR', sans-serif", color: theme.primary, fontSize: '1.34em', lineHeight: 1 }}>
+      <span
+        key={i}
+        style={{
+          fontFamily: "'HandKR', sans-serif", color: theme.primary,
+          fontSize: '1.34em', lineHeight: 1, display: 'inline-block',
+          // reveal the strokes from left to right (slight vertical slack so
+          // ascenders/descenders are never clipped)
+          clipPath: `inset(-12% ${(1 - emReveal) * 100}% -12% 0)`,
+        }}
+      >
         {p.slice(1, -1)}
       </span>
     ) : (
@@ -25,9 +35,9 @@ const renderInline = (line) =>
     )
   );
 
-const RichLines = ({ text, style }) =>
+const RichLines = ({ text, style, emReveal = 1 }) =>
   text.split('\n').map((ln, i) => (
-    <div key={i} style={style}>{renderInline(ln)}</div>
+    <div key={i} style={style}>{renderInline(ln, emReveal)}</div>
   ));
 
 const Scene = ({ slide, idx }) => {
@@ -36,6 +46,8 @@ const Scene = ({ slide, idx }) => {
 
   const fadeIn = (d) => interpolate(frame, [d, d + 12], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   const rise = (d, dist = 46) => interpolate(frame, [d, d + 16], [dist, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  // handwriting "pen draw" for *…* emphasis — starts after the title lands
+  const emReveal = interpolate(frame, [20, 44], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   const charSpring = spring({ frame: frame - 6, fps, config: { damping: 16, mass: 0.7 } });
 
   const isContent = slide.type === 'content';
@@ -84,7 +96,7 @@ const Scene = ({ slide, idx }) => {
 
         {(slide.type === 'cover' || slide.type === 'outro') && (
           <div style={{ opacity: fadeIn(4), transform: `translateY(${rise(4)}px)` }}>
-            <RichLines text={slide.title} style={{ fontSize: 110, fontWeight: 900, lineHeight: 1.16, letterSpacing: -2 }} />
+            <RichLines text={slide.title} emReveal={emReveal} style={{ fontSize: 110, fontWeight: 900, lineHeight: 1.16, letterSpacing: -2 }} />
           </div>
         )}
 
@@ -92,7 +104,7 @@ const Scene = ({ slide, idx }) => {
           <>
             <div style={{ width: 84, height: 9, background: theme.primary, borderRadius: 5, marginBottom: 34, opacity: fadeIn(6) }} />
             <div style={{ opacity: fadeIn(8), transform: `translateY(${rise(8)}px)` }}>
-              <RichLines text={slide.heading} style={{ fontSize: 80, fontWeight: 900, lineHeight: 1.18, letterSpacing: -1 }} />
+              <RichLines text={slide.heading} emReveal={emReveal} style={{ fontSize: 80, fontWeight: 900, lineHeight: 1.18, letterSpacing: -1 }} />
             </div>
             <div style={{ marginTop: 40, maxWidth: 760, opacity: fadeIn(16) }}>
               <RichLines text={slide.body} style={{ fontSize: 47, lineHeight: 1.55, color: theme.textDim, fontWeight: 500 }} />
@@ -102,12 +114,12 @@ const Scene = ({ slide, idx }) => {
 
         {slide.type === 'cover' && (
           <div style={{ marginTop: 44, opacity: fadeIn(16) }}>
-            <RichLines text={slide.subtitle} style={{ fontSize: 46, color: theme.textDim, fontWeight: 600, lineHeight: 1.4 }} />
+            <RichLines text={slide.subtitle} emReveal={emReveal} style={{ fontSize: 46, color: theme.textDim, fontWeight: 600, lineHeight: 1.4 }} />
           </div>
         )}
         {slide.type === 'outro' && (
           <div style={{ marginTop: 50, opacity: fadeIn(16) }}>
-            <RichLines text={slide.cta} style={{ fontSize: 46, color: theme.primary, fontWeight: 800, lineHeight: 1.4 }} />
+            <RichLines text={slide.cta} emReveal={emReveal} style={{ fontSize: 46, color: theme.primary, fontWeight: 800, lineHeight: 1.4 }} />
           </div>
         )}
       </div>

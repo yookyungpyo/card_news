@@ -18,3 +18,7 @@ assets/poses/_candidates.png
 *.log
 .DS_Store
 Thumbs.db
+
+# remotion build artifacts
+remotion/out/
+remotion/node_modules/
